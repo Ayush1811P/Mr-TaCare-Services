@@ -50,7 +50,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.vaccination, S.surgery, S.diagnostics, S.petCare],
     isVerified: true,
     consultationFee: 600,
-    whatsappNumber: '919812345601',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_abc_sector_62',
       name: 'ABC Veterinary Clinic',
@@ -78,7 +78,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.dermatology, S.vaccination, S.nutrition, S.diagnostics],
     isVerified: true,
     consultationFee: 700,
-    whatsappNumber: '919812345602',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_pawsafe_sector_50',
       name: 'PawSafe Pet Clinic',
@@ -113,7 +113,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.emergency, S.diagnostics, S.surgery, S.dental],
     isVerified: true,
     consultationFee: 800,
-    whatsappNumber: '919812345603',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_petfirst_sector_18',
       name: 'PetFirst Animal Hospital',
@@ -147,7 +147,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.vaccination, S.nutrition, S.exotic, S.petCare],
     isVerified: true,
     consultationFee: 500,
-    whatsappNumber: '919812345604',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_happytails_sector_76',
       name: 'Happy Tails Veterinary Care',
@@ -175,7 +175,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.surgery, S.orthopaedics, S.dental, S.diagnostics],
     isVerified: true,
     consultationFee: 900,
-    whatsappNumber: '919812345605',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_greenleaf_sector_27',
       name: 'Green Leaf Pet Hospital',
@@ -203,7 +203,7 @@ export const mockDoctors: readonly Doctor[] = [
     services: [S.consult, S.homeVisit, S.vaccination, S.nutrition, S.petCare],
     isVerified: true,
     consultationFee: 650,
-    whatsappNumber: '919812345606',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_carepaws_sector_137',
       name: 'CarePaws Veterinary Studio',
@@ -230,7 +230,7 @@ export const mockDoctors: readonly Doctor[] = [
     languages: ['English', 'Hindi', 'Tamil'],
     services: [S.consult, S.diagnostics, S.nutrition, S.dental, S.petCare],
     isVerified: false,
-    whatsappNumber: '919812345607',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_wellpet_sector_104',
       name: 'WellPet Clinic',
@@ -256,7 +256,7 @@ export const mockDoctors: readonly Doctor[] = [
     languages: ['English', 'Hindi'],
     services: [S.consult, S.vaccination, S.exotic, S.petCare],
     isVerified: false,
-    whatsappNumber: '919812345608',
+    whatsappNumber: '918948641717',
     clinic: {
       id: 'cl_citypet_sector_15',
       name: 'City Pet Care',
