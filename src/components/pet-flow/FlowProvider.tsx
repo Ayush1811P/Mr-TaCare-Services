@@ -22,10 +22,9 @@ import {
  *
  * Context (not a state library) because exactly one subtree needs it.
  *
- * State is mirrored into sessionStorage so a refresh on /doctors does not throw
- * away the answers. sessionStorage — not the URL and not localStorage — because
- * the payload includes a name and phone number: it must not appear in a
- * shareable link, in server logs, or persist after the tab closes.
+ * State is mirrored into localStorage so a refresh on /doctors does not throw
+ * away the answers, and users returning later don't have to re-enter their
+ * contact or pet details.
  */
 
 const STORAGE_KEY = 'jivaayu.flow.v1';
@@ -41,7 +40,7 @@ const FlowContext = createContext<FlowContextValue | null>(null);
 
 function readStoredState(): FlowState | null {
   try {
-    const raw = window.sessionStorage.getItem(STORAGE_KEY);
+    const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<FlowState>;
     return { ...initialFlowState, ...parsed };
@@ -72,7 +71,7 @@ export function FlowProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!isReady) return;
     try {
-      window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch {
       // Storage can be unavailable (private mode, quota exceeded). The flow
       // still works fully in memory, so failing quietly is the right call.
@@ -94,7 +93,7 @@ export function useFlow(): FlowContextValue {
 
 export function clearStoredFlow() {
   try {
-    window.sessionStorage.removeItem(STORAGE_KEY);
+    window.localStorage.removeItem(STORAGE_KEY);
   } catch {
     // no-op
   }
