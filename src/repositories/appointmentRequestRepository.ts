@@ -13,7 +13,7 @@ export interface AppointmentRequestRepository {
 
 class SupabaseAppointmentRequestRepository implements AppointmentRequestRepository {
   async create(request: AppointmentRequest): Promise<AppointmentRequestRecord> {
-    const { data, error } = await supabase.rpc('submit_appointment_request', {
+    const payload = {
       p_customer_name: request.customerName,
       p_mobile_number: request.customerMobile,
       p_pet_name: request.petName,
@@ -27,10 +27,15 @@ class SupabaseAppointmentRequestRepository implements AppointmentRequestReposito
       p_latitude: request.latitude ?? null,
       p_longitude: request.longitude ?? null,
       p_location_text: null,
-    });
+    };
+    
+    console.log("=== SUPABASE RPC PAYLOAD ===");
+    console.log(JSON.stringify(payload, null, 2));
+
+    const { data, error } = await supabase.rpc('submit_appointment_request', payload);
 
     if (error) {
-      console.error('Error creating appointment request:', error);
+      console.error('=== SUPABASE RPC ERROR ===', error);
       throw new Error(error.message);
     }
 
