@@ -37,7 +37,7 @@ const weekdayHours = [
 
 export const mockDoctors: readonly Doctor[] = [
   {
-    id: 'doc_amit_sharma',
+    id: '1c1296b1-78a1-478b-8bf5-b12fa08ef697',
     slug: 'dr-amit-sharma-sector-62',
     name: 'Dr. Amit Sharma',
     qualifications: 'BVSc & AH, MVSc (Surgery)',
@@ -52,7 +52,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 600,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_abc_sector_62',
+      id: 'a6415cae-cd8f-409e-9602-ffac76cb834d',
       name: 'ABC Veterinary Clinic',
       addressLine: 'C-24, Ground Floor, Sector 62',
       locality: 'Sector 62',
@@ -65,7 +65,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_priya_nair',
+    id: '3e01bb37-2f1c-4c53-a5f9-b11d5c574660',
     slug: 'dr-priya-nair-sector-50',
     name: 'Dr. Priya Nair',
     qualifications: 'BVSc & AH, PG Dip (Dermatology)',
@@ -80,7 +80,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 700,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_pawsafe_sector_50',
+      id: '893729ad-cfee-475c-a843-00c74a3041e6',
       name: 'PawSafe Pet Clinic',
       addressLine: 'Shop 7, Sector 50 Market',
       locality: 'Sector 50',
@@ -100,7 +100,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_harpreet_singh',
+    id: 'c3183544-acca-4d34-95b7-6706b58a9598',
     slug: 'dr-harpreet-singh-sector-18',
     name: 'Dr. Harpreet Singh',
     qualifications: 'BVSc & AH, MVSc (Medicine)',
@@ -115,7 +115,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 800,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_petfirst_sector_18',
+      id: 'cf9ad32d-9174-47b5-b686-7289d9896e4b',
       name: 'PetFirst Animal Hospital',
       addressLine: 'A-12, Atta Market, Sector 18',
       locality: 'Sector 18',
@@ -134,7 +134,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_fatima_khan',
+    id: 'ac8e3aff-a0f4-40ea-abfc-98b8a4bb4138',
     slug: 'dr-fatima-khan-sector-76',
     name: 'Dr. Fatima Khan',
     qualifications: 'BVSc & AH',
@@ -149,7 +149,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 500,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_happytails_sector_76',
+      id: '713b0422-363a-4853-99a0-56a22c120302',
       name: 'Happy Tails Veterinary Care',
       addressLine: 'GF-3, Gaur City Centre Road, Sector 76',
       locality: 'Sector 76',
@@ -162,7 +162,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_rakesh_verma',
+    id: '32eabcb9-b695-463d-9e98-3bcd5070dd9d',
     slug: 'dr-rakesh-verma-sector-27',
     name: 'Dr. Rakesh Verma',
     qualifications: 'BVSc & AH, MVSc (Surgery)',
@@ -177,7 +177,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 900,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_greenleaf_sector_27',
+      id: '2947e201-b7d4-4a73-9dd7-9988179dbb8e',
       name: 'Green Leaf Pet Hospital',
       addressLine: 'B-4, Sector 27 Main Road',
       locality: 'Sector 27',
@@ -190,7 +190,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_sneha_gupta',
+    id: 'd1654001-3787-4114-b4ab-3fcbae5cf024',
     slug: 'dr-sneha-gupta-sector-137',
     name: 'Dr. Sneha Gupta',
     qualifications: 'BVSc & AH',
@@ -205,7 +205,7 @@ export const mockDoctors: readonly Doctor[] = [
     consultationFee: 650,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_carepaws_sector_137',
+      id: 'e336ce43-8ed3-47ab-9f82-21767bb07894',
       name: 'CarePaws Veterinary Studio',
       addressLine: 'Unit 9, Logix Blossom County Road, Sector 137',
       locality: 'Sector 137',
@@ -218,7 +218,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_meera_iyer',
+    id: '605e5785-84c2-45cd-af2d-787c94fc6df5',
     slug: 'dr-meera-iyer-sector-104',
     name: 'Dr. Meera Iyer',
     qualifications: 'BVSc & AH, MVSc (Pathology)',
@@ -232,7 +232,7 @@ export const mockDoctors: readonly Doctor[] = [
     isVerified: false,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_wellpet_sector_104',
+      id: '7c819a67-9292-4f1d-b532-de1c65d997ec',
       name: 'WellPet Clinic',
       addressLine: 'Plot 22, Sector 104',
       locality: 'Sector 104',
@@ -244,7 +244,7 @@ export const mockDoctors: readonly Doctor[] = [
     },
   },
   {
-    id: 'doc_arjun_mehta',
+    id: 'e5a350ea-0abf-49df-8e61-5e2e8c5c3204',
     slug: 'dr-arjun-mehta-sector-15',
     name: 'Dr. Arjun Mehta',
     qualifications: 'BVSc & AH',
@@ -258,7 +258,7 @@ export const mockDoctors: readonly Doctor[] = [
     isVerified: false,
     whatsappNumber: '918948641717',
     clinic: {
-      id: 'cl_citypet_sector_15',
+      id: 'c712fe5e-dbd8-44c1-9ed5-b000c6674bd1',
       name: 'City Pet Care',
       addressLine: 'Shop 4, Sector 15 Market',
       locality: 'Sector 15',

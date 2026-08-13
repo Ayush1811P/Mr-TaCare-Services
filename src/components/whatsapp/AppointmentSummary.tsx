@@ -88,7 +88,7 @@ export function AppointmentSummary({
         customerName,
         customerMobile: mobileE164,
         petName,
-        petType: petType.label,
+        petType: petType.slug.toUpperCase(),
         breed: breedSkipped ? undefined : breed?.name,
         ageYears,
         ageMonths,
