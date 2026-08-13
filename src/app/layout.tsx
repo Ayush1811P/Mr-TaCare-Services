@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { siteConfig } from '@/config/site';
 import { organizationSchema, websiteSchema } from '@/lib/seo/structuredData';
+import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider';
 import './globals.css';
 
 /**
@@ -59,20 +60,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={plusJakarta.variable} suppressHydrationWarning>
       <body className="bg-cream-50 flex min-h-dvh flex-col antialiased">
-        <a
-          href="#main"
-          className="text-cream-50 sr-only rounded-full bg-teal-800 px-5 py-3 font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50"
-        >
-          Skip to main content
-        </a>
+        <SmoothScrollProvider>
+          <a
+            href="#main"
+            className="text-cream-50 sr-only rounded-full bg-teal-800 px-5 py-3 font-semibold focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50"
+          >
+            Skip to main content
+          </a>
 
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+          <Header />
+          <main id="main" className="flex-1">
+            {children}
+          </main>
+          <Footer />
 
-        <JsonLd data={[organizationSchema(), websiteSchema()]} />
+          <JsonLd data={[organizationSchema(), websiteSchema()]} />
+        </SmoothScrollProvider>
       </body>
     </html>
   );
