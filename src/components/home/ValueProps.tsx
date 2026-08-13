@@ -6,7 +6,7 @@ const values = [
     icon: PinIcon,
     title: 'Nearby',
     description:
-      'See veterinary doctors around your location, sorted by how far they actually are from you.',
+      'Find the closest doctors, grooming centers, and pet supply stores around your location.',
   },
   {
     icon: BoltIcon,
@@ -18,7 +18,7 @@ const values = [
     icon: ChatIcon,
     title: 'Direct',
     description:
-      'Your request opens in WhatsApp, already written. You read it, you press send, you talk to the doctor.',
+      'Your request opens in WhatsApp, already written. You read it, you press send, you talk directly to the provider.',
   },
   {
     icon: PawIcon,
@@ -34,8 +34,7 @@ export function ValueProps() {
       <SectionHeading
         id="why-heading"
         eyebrow="Why Jivaayu Pet Care"
-        title="Getting to a vet shouldn't be the hard part"
-        description="Most pet owners lose time hunting through search results and unanswered phone numbers. We cut that down to a few taps."
+        title="Caring for your pet shouldn't be complicated"
       />
 
       <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">

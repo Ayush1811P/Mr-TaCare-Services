@@ -9,7 +9,7 @@ import { breadcrumbSchema } from '@/lib/seo/structuredData';
 export const metadata = buildPageMetadata({
   title: 'About Us',
   description:
-    'Jivaayu Pet Care is a Noida-based startup helping pet owners find nearby veterinary doctors and reach them on WhatsApp, without accounts or call centres.',
+    'Jivaayu Pet Care is a Noida-based startup providing a one-stop solution for all your pet needs—from doctors and grooming to food and supplies—directly on WhatsApp.',
   path: '/about',
 });
 
@@ -28,8 +28,8 @@ export default function AboutPage() {
               Built for pet owners in {city}
             </h1>
             <p className="text-ink-500 mt-5 text-lg leading-relaxed">
-              {siteConfig.name} started with a simple frustration: finding a vet in a hurry is
-              harder than it should be.
+              {siteConfig.name} started with a simple frustration: managing your pet&apos;s
+              needs—from finding a vet to buying food—means jumping between too many apps and tabs.
             </p>
           </div>
         </div>
@@ -55,16 +55,16 @@ export default function AboutPage() {
 
           <div className="text-ink-600 mt-6 space-y-5 text-[1.0625rem] leading-relaxed">
             <p>
-              If you have ever had a pet fall ill on a Sunday evening, you know the drill: a dozen
-              browser tabs, listings with numbers that ring out, reviews from three years ago, and
-              no clear sense of which clinic is actually close to you. Meanwhile the one thing you
-              care about is sitting on the floor looking miserable.
+              If you have ever tried to manage everything your pet needs, you know the drill:
+              jumping between a clinic&apos;s website for a vet, a different app for grooming, and
+              yet another store for food and toys. It&apos;s frustrating and takes time away from
+              what actually matters.
             </p>
             <p>
-              We thought the first step — simply reaching a veterinary doctor — should take two
-              minutes, not twenty. So we built exactly that, and nothing more. Tell us about your
-              pet, share where you are, pick a doctor, and send a message that already contains
-              everything they need to know.
+              We thought taking care of your pet should be seamless. So we built a true one-stop
+              solution. Whether you need to book a vet, schedule grooming, or restock on premium
+              food and toys, tell us what you need, share your location, and connect directly on
+              WhatsApp in under two minutes.
             </p>
             <p>
               We chose WhatsApp deliberately. It is where people in India already talk to their
@@ -97,10 +97,60 @@ export default function AboutPage() {
               Where we&apos;re going
             </h3>
             <p>
-              We are starting in {city}, {state}, and onboarding verified veterinary clinics sector
-              by sector. Pet grooming is our next service, and we are building it the same way:
-              small, simple and genuinely useful before it is big. If you are a veterinary doctor in{' '}
-              {city} who would like to be listed, we would love to hear from you.
+              We are starting in {city}, {state}, expanding our network of verified clinics,
+              groomers, and premium supply stores sector by sector. If you are a pet care
+              professional or store owner in {city} who would like to be listed, we would love to
+              hear from you.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="bg-cream-100" ariaLabelledBy="about-service-heading">
+        <div className="mx-auto max-w-3xl">
+          <h2 id="about-service-heading" className="text-3xl font-bold sm:text-4xl">
+            Everything for your pet in {city}, without the runaround
+          </h2>
+
+          <div className="text-ink-600 mt-6 space-y-5 text-[1.0625rem] leading-relaxed">
+            <p>
+              Whether your pet needs an urgent check-up, a fresh haircut, or a new bag of food, the
+              last thing you want is to scroll through a dozen tabs trying to find the best option.
+              Jivaayu Pet Care exists to shorten that gap. Tell us what you need, share your
+              location, and we show you the best verified professionals and stores near you across{' '}
+              {city}.
+            </p>
+
+            <h3 className="text-ink-900 pt-2 text-xl font-bold sm:text-2xl">
+              Care for dogs, cats and smaller companions
+            </h3>
+            <p>
+              Most requests we see are for dogs and cats — vaccinations, grooming, and their
+              favorite kibble. The platform adapts to whoever needs help: pick a rabbit or a bird
+              and we match you with specialists and supplies tailored exactly for small and exotic
+              pets.
+            </p>
+
+            <h3 className="text-ink-900 pt-2 text-xl font-bold sm:text-2xl">
+              Built around {city} sectors
+            </h3>
+            <p>
+              {city} is spread out, and &ldquo;veterinary clinic near me&rdquo; means something very
+              different from Sector 15 than it does from Sector 137. That is why distance is shown
+              on every card and why you can enter your sector by hand if you would rather not share
+              your location. We currently cover sectors across {city}, {state}, and we are adding
+              verified veterinary clinics as we onboard them.
+            </p>
+
+            <h3 className="text-ink-900 pt-2 text-xl font-bold sm:text-2xl">
+              What we do — and what we don&apos;t
+            </h3>
+            <p>
+              Jivaayu Pet Care helps you find a veterinary doctor and request an appointment. We are
+              not a clinic, we do not give medical advice, and we do not confirm appointments on a
+              doctor&apos;s behalf — opening WhatsApp starts a conversation, and the doctor confirms
+              availability themselves. If your pet needs urgent attention, please contact a
+              veterinary hospital directly.
             </p>
           </div>
         </div>

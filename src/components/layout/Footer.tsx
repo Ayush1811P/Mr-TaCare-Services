@@ -12,8 +12,8 @@ export function Footer() {
           <div>
             <Logo />
             <p className="text-ink-500 mt-4 max-w-sm text-[0.9375rem] leading-relaxed">
-              Jivaayu Pet Care helps pet owners in {defaultServiceArea.city} find nearby veterinary
-              doctors and start a conversation on WhatsApp — no account, no call centre.
+              Jivaayu Pet Care helps pet owners in {defaultServiceArea.city} find the best vets,
+              groomers, and supply stores, and connect instantly on WhatsApp.
             </p>
           </div>
 
@@ -55,9 +55,10 @@ export function Footer() {
 
         <div className="border-cream-300/80 mt-12 space-y-4 border-t pt-7">
           <p className="text-ink-400 text-sm leading-relaxed">
-            Jivaayu Pet Care helps you contact veterinary doctors. It does not provide medical
-            advice, diagnosis or treatment, and does not confirm appointments on a doctor&apos;s
-            behalf. In an emergency, contact a veterinary hospital directly.
+            Jivaayu Pet Care connects you with pet care providers and stores. It does not provide
+            medical advice, diagnosis, or treatment, and does not confirm appointments or orders on
+            a provider&apos;s behalf. In a medical emergency, contact a veterinary hospital
+            directly.
           </p>
           <p className="text-ink-400 text-sm">
             © {year} {siteConfig.name}. All rights reserved.

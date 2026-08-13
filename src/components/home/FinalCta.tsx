@@ -16,14 +16,14 @@ export function FinalCta() {
               id="cta-heading"
               className="text-cream-50 mx-auto max-w-2xl text-3xl font-extrabold sm:text-4xl"
             >
-              Your pet needs a doctor. Let&apos;s find one.
+              Everything your pet needs, a tap away.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-teal-100">
-              Veterinary doctors across {defaultServiceArea.city}, reachable on WhatsApp in about
-              two minutes.
+              Connect with verified professionals and supply stores across {defaultServiceArea.city}{' '}
+              in about two minutes.
             </p>
-            <ButtonLink href="/find-a-doctor" size="lg" variant="inverse" className="group mt-8">
-              See a Doctor
+            <ButtonLink href="/#services" size="lg" variant="inverse" className="group mt-8">
+              Explore Services
               <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </ButtonLink>
           </div>

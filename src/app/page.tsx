@@ -1,7 +1,6 @@
 import { FinalCta } from '@/components/home/FinalCta';
 import { Hero } from '@/components/home/Hero';
 import { HowItWorks } from '@/components/home/HowItWorks';
-import { SeoContent } from '@/components/home/SeoContent';
 import { Services } from '@/components/home/Services';
 import { ValueProps } from '@/components/home/ValueProps';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -45,7 +44,6 @@ export default function HomePage() {
       <Services />
       <ValueProps />
       <HowItWorks />
-      <SeoContent />
       <FinalCta />
       <JsonLd data={faqSchema(faqs)} />
     </>

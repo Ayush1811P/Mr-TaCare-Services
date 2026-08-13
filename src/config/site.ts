@@ -15,11 +15,11 @@ export const siteConfig = {
   url: rawSiteUrl,
   locale: 'en_IN',
   description:
-    'Find nearby veterinary doctors in Noida and send an appointment request straight to them on WhatsApp. No account, no forms, no waiting on hold.',
-  tagline: 'Find the right care for your pet, right when they need it.',
-  email: 'hello@jivaayu.example',
+    "Your one-stop destination for all your pet's needs. From veterinary doctors and grooming to premium food, toys, and supplies. Connect directly on WhatsApp.",
+  tagline: 'Everything your pet needs, all in one place.',
+  email: 'awsmsi0405@gmail.com',
   /** Public business contact used for support links (not a customer number). */
-  supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP ?? '911234567890',
+  supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP ?? '919313222913',
   ogImage: '/opengraph-image',
   twitterHandle: '@jivaayupetcare',
   /**

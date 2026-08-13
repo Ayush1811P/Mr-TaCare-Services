@@ -1,4 +1,3 @@
-import { ButtonLink } from '@/components/ui/Button';
 import { Logo } from '@/components/layout/Logo';
 import { MobileNav } from '@/components/layout/MobileNav';
 import { mainNav } from '@/config/site';
@@ -31,11 +30,6 @@ export function Header() {
             Button base class sets `inline-flex`, and two same-specificity
             display utilities would leave the winner up to stylesheet order.
           */}
-          <div className="hidden sm:block">
-            <ButtonLink href="/find-a-doctor" size="sm">
-              See a Doctor
-            </ButtonLink>
-          </div>
           <MobileNav />
         </div>
       </div>

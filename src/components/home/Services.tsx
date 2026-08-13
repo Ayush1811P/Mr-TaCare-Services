@@ -1,6 +1,6 @@
 import { ServiceCard } from '@/components/home/ServiceCard';
 import { Section, SectionHeading } from '@/components/ui/Section';
-import { BathIcon, StethoscopeIcon } from '@/components/ui/Icons';
+import { BathIcon, StethoscopeIcon, BowlIcon, BoneIcon, PackageIcon } from '@/components/ui/Icons';
 
 export function Services() {
   return (
@@ -8,11 +8,11 @@ export function Services() {
       <SectionHeading
         id="services-heading"
         eyebrow="What we do"
-        title="Two ways we look after your pet"
-        description="Veterinary care is live today. Grooming is on the way."
+        title="Everything we offer"
+        description="Your one-stop solution for all pet needs."
       />
 
-      <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2 md:gap-7">
+      <div className="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-2 md:gap-7 lg:grid-cols-3">
         <ServiceCard
           status="active"
           title="See a Doctor"
@@ -31,6 +31,33 @@ export function Services() {
           imageSrc="/images/grooming.webp"
           imageAlt="A small white dog being gently brushed during a grooming session"
           icon={<BathIcon className="h-6 w-6" />}
+        />
+
+        <ServiceCard
+          status="coming-soon"
+          title="Pet Foods"
+          description="Premium nutrition for your companions — from daily kibble to specialized diets."
+          imageSrc="/images/pet-food.jpg"
+          imageAlt="A bowl of pet food"
+          icon={<BowlIcon className="h-6 w-6" />}
+        />
+
+        <ServiceCard
+          status="coming-soon"
+          title="Pet Toys"
+          description="Engaging and durable toys to keep your pet active and happy."
+          imageSrc="/images/pet-toys.jpg"
+          imageAlt="A dog playing with a toy"
+          icon={<BoneIcon className="h-6 w-6" />}
+        />
+
+        <ServiceCard
+          status="coming-soon"
+          title="Pet Materials"
+          description="Essential supplies, accessories, and bedding for a comfortable life."
+          imageSrc="/images/pet-materials.jpg"
+          imageAlt="Pet supplies, food, and accessories on a pink background"
+          icon={<PackageIcon className="h-6 w-6" />}
         />
       </div>
     </Section>

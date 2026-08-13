@@ -5,23 +5,23 @@ export const steps = [
   {
     number: '01',
     icon: PawIcon,
-    title: 'Tell us about your pet',
+    title: 'Tell us what you need',
     description:
-      'A few simple questions — who needs a doctor, how old they are, and what they are called.',
+      'A few simple questions — whether you need a vet, grooming, or fresh supplies for your companion.',
   },
   {
     number: '02',
     icon: PinIcon,
-    title: 'Find nearby doctors',
+    title: 'Find the best options',
     description:
-      'Share your location, or type your sector. We show veterinary doctors near you with distance and services.',
+      'Share your location, or type your sector. We match you with the closest verified professionals and stores.',
   },
   {
     number: '03',
     icon: ChatIcon,
     title: 'Connect on WhatsApp',
     description:
-      'Review your appointment request, then open WhatsApp with the message already written for you.',
+      'Review your request, then open WhatsApp with the message already written for you.',
   },
 ] as const;
 

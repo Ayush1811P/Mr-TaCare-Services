@@ -4,9 +4,9 @@ import { ArrowRightIcon, ChatIcon, PinIcon, ShieldCheckIcon } from '@/components
 import { defaultServiceArea } from '@/config/site';
 
 const trustPoints = [
-  { icon: PinIcon, label: `Doctors across ${defaultServiceArea.city}` },
-  { icon: ChatIcon, label: 'Request on WhatsApp' },
-  { icon: ShieldCheckIcon, label: 'No account needed' },
+  { icon: PinIcon, label: `Vet & Grooming` },
+  { icon: ChatIcon, label: 'Food & Toys' },
+  { icon: ShieldCheckIcon, label: 'All on WhatsApp' },
 ];
 
 export function Hero() {
@@ -21,18 +21,17 @@ export function Hero() {
             </p>
 
             <h1 className="text-ink-900 mt-6 text-4xl leading-[1.08] font-extrabold sm:text-5xl lg:text-[3.5rem]">
-              Find the right care for your pet,{' '}
-              <span className="text-teal-700">right when they need it.</span>
+              Everything your pet needs, <span className="text-teal-700">all in one place.</span>
             </h1>
 
             <p className="text-ink-500 mt-6 max-w-xl text-lg leading-relaxed sm:text-xl">
-              Answer a few quick questions, see veterinary doctors near you, and send an appointment
-              request straight to them on WhatsApp. No forms, no sign-up, no waiting on hold.
+              From veterinary doctors and grooming to premium food, toys, and supplies. Your
+              one-stop destination for pet care.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ButtonLink href="/find-a-doctor" size="lg" className="group">
-                See a Doctor
+              <ButtonLink href="#services" size="lg" className="group">
+                Explore Services
                 <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
               </ButtonLink>
               <ButtonLink href="/how-it-works" size="lg" variant="secondary">

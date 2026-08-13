@@ -10,7 +10,7 @@ import { breadcrumbSchema } from '@/lib/seo/structuredData';
 export const metadata = buildPageMetadata({
   title: 'How It Works',
   description:
-    'See how Jivaayu Pet Care works: answer a few questions about your pet, find veterinary doctors near you in Noida, and send an appointment request on WhatsApp.',
+    'See how Jivaayu Pet Care works: answer a few questions, find the best vets, groomers, and supply stores near you, and connect directly on WhatsApp.',
   path: '/how-it-works',
 });
 
@@ -26,9 +26,9 @@ const faqs = [
       'Because you should know what you are sharing and why. We collect your pet details first, then ask for location only when it is time to actually search for nearby doctors. You can always type your sector instead.',
   },
   {
-    question: 'Is my appointment confirmed once WhatsApp opens?',
+    question: 'Is my request confirmed once WhatsApp opens?',
     answer:
-      'No. Opening WhatsApp starts a conversation — nothing more. The doctor confirms availability and the appointment directly with you.',
+      'No. Opening WhatsApp starts a conversation — nothing more. The provider confirms availability or stock directly with you.',
   },
   {
     question: 'What happens to my phone number?',
@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
               How it works
             </p>
             <h1 className="text-ink-900 text-4xl font-extrabold sm:text-5xl">
-              From &ldquo;my dog seems off&rdquo; to a doctor on WhatsApp
+              From &ldquo;my dog needs a vet&rdquo; to supplies at your door
             </h1>
             <p className="text-ink-500 mt-5 text-lg leading-relaxed">
               Three steps, about two minutes, and no account to create. Here is exactly what happens
@@ -69,30 +69,29 @@ export default function HowItWorksPage() {
             <div>
               <h3 className="text-ink-900 text-xl font-bold">1. A few questions about your pet</h3>
               <p className="text-ink-600 mt-2.5 leading-relaxed">
-                We ask your name and mobile number, then who needs a doctor — dog, cat, rabbit, bird
-                or another companion. From there the questions adapt: pick a cat and we ask how old
-                your cat is, not how old your &ldquo;pet&rdquo; is. Breed is optional, and
-                &ldquo;Mixed / Not sure&rdquo; is always one tap away.
+                We ask your name and mobile number, then what your pet needs—whether it&apos;s a
+                doctor, grooming, or fresh supplies. From there the questions adapt to find you the
+                best match.
               </p>
             </div>
 
             <div>
-              <h3 className="text-ink-900 text-xl font-bold">2. Doctors near you</h3>
+              <h3 className="text-ink-900 text-xl font-bold">2. The best options near you</h3>
               <p className="text-ink-600 mt-2.5 leading-relaxed">
                 Only once your pet&apos;s details are in do we ask for location — and only then does
                 your browser show a permission prompt. Prefer not to share it? Type your sector
-                instead. We list veterinary doctors across {defaultServiceArea.city} with their
-                clinic, services and distance from you, closest first.
+                instead. We list the best verified professionals and stores across{' '}
+                {defaultServiceArea.city} with their services and distance from you, closest first.
               </p>
             </div>
 
             <div>
               <h3 className="text-ink-900 text-xl font-bold">3. A message you control</h3>
               <p className="text-ink-600 mt-2.5 leading-relaxed">
-                Choose a doctor and we show you a review screen with everything we are about to
+                Choose a provider and we show you a review screen with everything we are about to
                 include. Press continue and WhatsApp opens with the message written out — your name,
-                your pet, their age and breed, and any date or time you prefer. You read it, then
-                you press send. We never message anyone on your behalf.
+                your pet, and your specific needs. You read it, then you press send. We never
+                message anyone on your behalf.
               </p>
             </div>
           </div>
@@ -100,10 +99,10 @@ export default function HowItWorksPage() {
           <div className="rounded-card border-clay-300/60 bg-clay-50 mt-10 border p-6">
             <h3 className="text-ink-900 text-lg font-bold">One thing to be clear about</h3>
             <p className="text-ink-600 mt-2.5 leading-relaxed">
-              Jivaayu Pet Care helps you reach a veterinary doctor. We are not a clinic, we do not
-              give medical advice, and we cannot confirm an appointment for you — only the doctor
-              can do that. If your pet needs urgent care, please contact a veterinary hospital
-              directly.
+              Jivaayu Pet Care helps you reach a provider. We are not a clinic, we do not give
+              medical advice, and we cannot confirm an appointment or order for you — only the
+              provider can do that. If your pet needs urgent care, please contact a veterinary
+              hospital directly.
             </p>
           </div>
         </div>
@@ -136,6 +135,41 @@ export default function HowItWorksPage() {
             </Link>
             .
           </p>
+        </div>
+      </Section>
+
+      <Section className="bg-white" ariaLabelledBy="how-it-works-extra-heading">
+        <div className="mx-auto max-w-3xl">
+          <h2 id="how-it-works-extra-heading" className="text-3xl font-bold sm:text-4xl">
+            A WhatsApp message you control
+          </h2>
+
+          <div className="text-ink-600 mt-6 space-y-5 text-[1.0625rem] leading-relaxed">
+            <p>
+              Every listing ends the same way: a WhatsApp message you can read before you send it.
+              Rather than making you repeat your pet&apos;s age and breed over a phone call, we
+              prepare the details and hand them over in one message. You choose the doctor, you
+              press send, and the conversation is yours from there.
+            </p>
+
+            <p>
+              Ready when you are:{' '}
+              <Link
+                href="/#services"
+                className="font-semibold text-teal-700 underline underline-offset-4 hover:text-teal-800"
+              >
+                explore our services
+              </Link>
+              , or read more about{' '}
+              <Link
+                href="/how-it-works"
+                className="font-semibold text-teal-700 underline underline-offset-4 hover:text-teal-800"
+              >
+                how the process works
+              </Link>
+              .
+            </p>
+          </div>
         </div>
       </Section>
 

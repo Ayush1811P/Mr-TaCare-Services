@@ -2,7 +2,6 @@ import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { ButtonLink } from '@/components/ui/Button';
 import { ArrowRightIcon } from '@/components/ui/Icons';
-import { cn } from '@/lib/utils/cn';
 
 type ServiceCardProps = {
   title: string;
@@ -20,13 +19,9 @@ export function ServiceCard(props: ServiceCardProps) {
   const isActive = status === 'active';
 
   return (
-    <article
-      className={cn(
-        'group rounded-card shadow-soft relative flex flex-col overflow-hidden border bg-white transition-shadow',
-        isActive ? 'border-cream-300/80 hover:shadow-lift' : 'border-cream-300 border-dashed',
-      )}
-    >
-      <div className="bg-cream-200 relative aspect-[16/10] overflow-hidden">
+    <article className="group relative flex flex-col overflow-hidden rounded-[1.5rem] bg-white transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 hover:shadow-teal-900/10 border border-gray-100">
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/0 z-10 transition-opacity duration-300 group-hover:opacity-90" />
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -34,41 +29,37 @@ export function ServiceCard(props: ServiceCardProps) {
           height={512}
           loading="lazy"
           sizes="(min-width: 768px) 42vw, 100vw"
-          className={cn(
-            'h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none',
-            isActive ? 'group-hover:scale-[1.03]' : 'opacity-70 saturate-[0.65]',
-          )}
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 motion-reduce:transition-none"
         />
-        {!isActive ? (
-          <span className="bg-ink-900/85 text-cream-50 absolute top-4 right-4 rounded-full px-3.5 py-1.5 text-xs font-bold tracking-wide uppercase">
+        
+        <div className="absolute top-4 left-4 z-20 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/90 shadow-sm backdrop-blur-md text-teal-700 transition-transform duration-300 group-hover:scale-110">
+          {icon}
+        </div>
+
+        {!isActive && (
+          <span className="absolute top-4 right-4 z-20 rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3.5 py-1.5 text-xs font-semibold tracking-wide text-white uppercase shadow-sm">
             Coming soon
           </span>
-        ) : null}
+        )}
+
+        <div className="absolute bottom-0 left-0 right-0 p-6 z-20 translate-y-1 transition-transform duration-300 group-hover:translate-y-0">
+           <h3 className="text-2xl font-bold text-white drop-shadow-md">{title}</h3>
+        </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
-        <span
-          className={cn(
-            'flex h-11 w-11 items-center justify-center rounded-xl',
-            isActive ? 'bg-teal-50 text-teal-700' : 'bg-cream-200 text-ink-400',
-          )}
-        >
-          {icon}
-        </span>
+      <div className="flex flex-1 flex-col p-6 pt-5 bg-gradient-to-b from-white to-gray-50/50">
+        <p className="text-gray-600 flex-1 leading-relaxed">{description}</p>
 
-        <h3 className="text-ink-900 mt-4 text-xl font-bold sm:text-2xl">{title}</h3>
-        <p className="text-ink-500 mt-2.5 flex-1 leading-relaxed">{description}</p>
-
-        <div className="mt-6">
+        <div className="mt-8">
           {isActive ? (
-            <ButtonLink href={props.ctaHref} size="md" className="group/cta w-full sm:w-auto">
+            <ButtonLink href={props.ctaHref} size="md" className="group/cta w-full shadow-sm hover:shadow-md transition-all">
               {props.ctaLabel}
-              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/cta:translate-x-0.5 motion-reduce:transition-none" />
+              <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/cta:translate-x-1 motion-reduce:transition-none" />
             </ButtonLink>
           ) : (
-            <p className="bg-cream-100 text-ink-500 inline-flex min-h-12 items-center rounded-full px-5 text-sm font-semibold">
-              We&apos;re working on it — grooming opens soon
-            </p>
+            <div className="inline-flex min-h-[44px] items-center rounded-xl bg-gray-100/80 px-4 text-sm font-medium text-gray-500 w-full justify-center border border-gray-200/60">
+              Launching soon
+            </div>
           )}
         </div>
       </div>
