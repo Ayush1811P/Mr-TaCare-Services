@@ -1,3 +1,5 @@
+'use server';
+
 import { appointmentRequestRepository } from '@/repositories/appointmentRequestRepository';
 import type { AppointmentRequest, AppointmentRequestRecord } from '@/types';
 

@@ -24,10 +24,6 @@ export function Hero() {
               Everything your pet needs, <span className="text-teal-700">all in one place.</span>
             </h1>
 
-
-
-
-
             <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
               {trustPoints.map(({ icon: Icon, label }) => (
                 <li
@@ -57,7 +53,7 @@ export function Hero() {
                 fetchPriority="high"
                 quality={70}
                 sizes="(min-width: 1024px) 46vw, calc(100vw - 2.5rem)"
-                className="hidden h-auto w-full object-cover sm:block animate-float-subtle"
+                className="animate-float-subtle hidden h-auto w-full object-cover sm:block"
               />
               <Image
                 src="/images/mobile-hero-pets.png"
@@ -67,15 +63,20 @@ export function Hero() {
                 priority
                 fetchPriority="high"
                 quality={90}
-                className="block h-auto w-full object-cover sm:hidden animate-float-subtle"
+                className="animate-float-subtle block h-auto w-full object-cover sm:hidden"
               />
 
-              <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <ButtonLink href="#services" size="lg" className="group w-full sm:w-auto shadow-lg">
+              <div className="absolute right-6 bottom-6 left-6 z-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <ButtonLink href="#services" size="lg" className="group w-full shadow-lg sm:w-auto">
                   Explore Services
                   <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
                 </ButtonLink>
-                <ButtonLink href="/how-it-works" size="lg" variant="secondary" className="w-full sm:w-auto shadow-lg">
+                <ButtonLink
+                  href="/how-it-works"
+                  size="lg"
+                  variant="secondary"
+                  className="w-full shadow-lg sm:w-auto"
+                >
                   How it works
                 </ButtonLink>
               </div>

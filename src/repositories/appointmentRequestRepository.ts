@@ -1,48 +1,74 @@
+import { supabase } from '@/lib/supabase';
+import { supabaseServer } from '@/lib/supabase-server';
 import type {
   AppointmentRequest,
   AppointmentRequestRecord,
   AppointmentRequestStatus,
 } from '@/types';
 
-/**
- * Persistence for appointment requests and their status events.
- *
- * Phase 1 keeps records in memory only — nothing is transmitted anywhere, and
- * personal data never leaves the tab. The Supabase implementation will INSERT
- * into `appointment_requests` / `appointment_events` under an RLS policy that
- * allows insert-only access for anonymous visitors.
- */
 export interface AppointmentRequestRepository {
   create(request: AppointmentRequest): Promise<AppointmentRequestRecord>;
   updateStatus(id: string, status: AppointmentRequestStatus): Promise<void>;
 }
 
-function createId(): string {
-  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-    return crypto.randomUUID();
-  }
-  return `req_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
-}
-
-class InMemoryAppointmentRequestRepository implements AppointmentRequestRepository {
-  private readonly records = new Map<string, AppointmentRequestRecord>();
-
+class SupabaseAppointmentRequestRepository implements AppointmentRequestRepository {
   async create(request: AppointmentRequest): Promise<AppointmentRequestRecord> {
-    const record: AppointmentRequestRecord = {
+    const { data, error } = await supabase.rpc('submit_appointment_request', {
+      p_customer_name: request.customerName,
+      p_mobile_number: request.customerMobile,
+      p_pet_name: request.petName,
+      p_pet_type: request.petType,
+      p_breed: request.breed || null,
+      p_age_years: request.ageYears ?? null,
+      p_age_months: request.ageMonths ?? null,
+      p_doctor_id: request.doctorId,
+      p_preferred_date: request.preferredDate || null,
+      p_preferred_time: request.preferredTime || null,
+      p_latitude: request.latitude ?? null,
+      p_longitude: request.longitude ?? null,
+      p_location_text: null,
+    });
+
+    if (error) {
+      console.error('Error creating appointment request:', error);
+      throw new Error(error.message);
+    }
+
+    if (!data) {
+      throw new Error('No data returned from submit_appointment_request');
+    }
+
+    return {
       ...request,
-      id: createId(),
+      id: data as string,
       createdAt: new Date().toISOString(),
     };
-    this.records.set(record.id, record);
-    return record;
   }
 
   async updateStatus(id: string, status: AppointmentRequestStatus): Promise<void> {
-    const existing = this.records.get(id);
-    if (!existing) return;
-    this.records.set(id, { ...existing, status });
+    // We use the service_role client here because the schema revokes UPDATE on appointment_requests from anon.
+    const { error } = await supabaseServer
+      .from('appointment_requests')
+      .update({ status })
+      .eq('id', id);
+
+    if (error) {
+      console.error('Error updating appointment request status:', error);
+      throw new Error(error.message);
+    }
+
+    // Insert into appointment_events explicitly for WHATSAPP_OPENED
+    // (The REQUESTED event is handled by trigger)
+    const { error: eventError } = await supabaseServer.from('appointment_events').insert({
+      appointment_request_id: id,
+      event_type: status,
+    });
+
+    if (eventError) {
+      console.error('Error creating appointment event:', eventError);
+    }
   }
 }
 
 export const appointmentRequestRepository: AppointmentRequestRepository =
-  new InMemoryAppointmentRequestRepository();
+  new SupabaseAppointmentRequestRepository();
