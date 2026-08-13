@@ -14,7 +14,7 @@ export function Hero() {
     <section className="from-cream-100 to-cream-50 relative overflow-hidden bg-gradient-to-b">
       <div className="container-page py-14 sm:py-20 lg:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div className="animate-fade-up">
+          <div className="animate-fade-up order-2 lg:order-1">
             <p className="inline-flex items-center gap-2 rounded-full border border-teal-700/15 bg-white px-4 py-1.5 text-sm font-semibold text-teal-700">
               <span className="bg-clay-500 flex h-2 w-2 rounded-full" aria-hidden="true" />
               Now serving {defaultServiceArea.city}
@@ -24,20 +24,9 @@ export function Hero() {
               Everything your pet needs, <span className="text-teal-700">all in one place.</span>
             </h1>
 
-            <p className="text-ink-500 mt-6 max-w-xl text-lg leading-relaxed sm:text-xl">
-              From veterinary doctors and grooming to premium food, toys, and supplies. Your
-              one-stop destination for pet care.
-            </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ButtonLink href="#services" size="lg" className="group">
-                Explore Services
-                <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
-              </ButtonLink>
-              <ButtonLink href="/how-it-works" size="lg" variant="secondary">
-                How it works
-              </ButtonLink>
-            </div>
+
+
 
             <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
               {trustPoints.map(({ icon: Icon, label }) => (
@@ -52,7 +41,7 @@ export function Hero() {
             </ul>
           </div>
 
-          <div className="relative">
+          <div className="relative order-1 lg:order-2">
             <div className="bg-cream-200 shadow-lift relative overflow-hidden rounded-[1.75rem]">
               {/*
                 The LCP element: eagerly loaded with fetchPriority high, fixed
@@ -68,17 +57,27 @@ export function Hero() {
                 fetchPriority="high"
                 quality={70}
                 sizes="(min-width: 1024px) 46vw, calc(100vw - 2.5rem)"
-                className="h-auto w-full object-cover"
+                className="hidden h-auto w-full object-cover sm:block animate-float-subtle"
               />
-            </div>
+              <Image
+                src="/images/mobile-hero-pets.png"
+                alt="Ultra 4K cinematic image of a beautiful cat and dog"
+                width={768}
+                height={1024}
+                priority
+                fetchPriority="high"
+                quality={90}
+                className="block h-auto w-full object-cover sm:hidden animate-float-subtle"
+              />
 
-            <div className="border-cream-300/70 shadow-soft absolute -bottom-5 left-4 flex items-center gap-3 rounded-2xl border bg-white/95 px-4 py-3 backdrop-blur-sm sm:left-6">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-700">
-                <ChatIcon className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="text-ink-900 text-sm font-bold">Straight to WhatsApp</p>
-                <p className="text-ink-500 text-xs">You review the message before it sends</p>
+              <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
+                <ButtonLink href="#services" size="lg" className="group w-full sm:w-auto shadow-lg">
+                  Explore Services
+                  <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+                </ButtonLink>
+                <ButtonLink href="/how-it-works" size="lg" variant="secondary" className="w-full sm:w-auto shadow-lg">
+                  How it works
+                </ButtonLink>
               </div>
             </div>
           </div>

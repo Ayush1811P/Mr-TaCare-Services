@@ -57,8 +57,8 @@ export function ServiceCard(props: ServiceCardProps) {
               <ArrowRightIcon className="h-4 w-4 transition-transform group-hover/cta:translate-x-1 motion-reduce:transition-none" />
             </ButtonLink>
           ) : (
-            <div className="inline-flex min-h-[44px] items-center rounded-xl bg-gray-100/80 px-4 text-sm font-medium text-gray-500 w-full justify-center border border-gray-200/60">
-              Launching soon
+            <div className="inline-flex min-h-12 items-center justify-center rounded-full bg-teal-700 px-6 text-[0.975rem] font-semibold text-cream-50 w-full opacity-90 shadow-sm cursor-default">
+              Coming soon
             </div>
           )}
         </div>
