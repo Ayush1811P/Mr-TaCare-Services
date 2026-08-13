@@ -82,6 +82,9 @@ export function AppointmentSummary({
     setSubmitting(true);
     setError(false);
 
+    // Open the window synchronously to bypass async popup blockers
+    const popup = window.open('about:blank', '_blank');
+
     try {
       // Referral record created before handoff, via the service layer.
       const record = await createAppointmentRequest({
@@ -113,28 +116,24 @@ export function AppointmentSummary({
         preferredTime: preferredTime || undefined,
       });
 
-      /*
-       * Navigate via a synthetic anchor rather than window.open.
-       *
-       * window.open(url, '_blank', 'noopener') returns null by specification
-       * even on success, so its result cannot be used to detect a blocked
-       * popup — doing so reported failure on every successful handoff. An
-       * anchor click carries the same rel="noopener noreferrer" protection and
-       * is far less likely to be blocked, since it is a direct result of the
-       * user's click.
-       */
-      const link = document.createElement('a');
-      link.href = url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
+      if (popup) {
+        popup.location.href = url;
+      } else {
+        // Fallback if synchronous popup was still blocked
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
 
       await markWhatsAppOpened(record.id);
       setOpened(true);
       setSubmitting(false);
     } catch {
+      if (popup) popup.close();
       setError(true);
       setSubmitting(false);
     }
