@@ -66,11 +66,14 @@ export function AppointmentSummary({
       if (event.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', onKeyDown);
-    const previous = document.body.style.overflow;
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', onKeyDown);
-      document.body.style.overflow = previous;
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
     };
   }, [onClose]);
 
@@ -167,7 +170,7 @@ export function AppointmentSummary({
         role="dialog"
         aria-modal="true"
         aria-labelledby="review-title"
-        className="bg-cream-50 shadow-lift animate-fade-up relative max-h-[92dvh] w-full overflow-y-auto rounded-t-3xl p-6 sm:max-w-lg sm:rounded-3xl sm:p-7"
+        className="bg-cream-50 shadow-lift animate-fade-up overscroll-contain relative max-h-[92dvh] w-full overflow-y-auto rounded-t-3xl p-6 sm:max-w-lg sm:rounded-3xl sm:p-7"
       >
         <div className="flex items-start justify-between gap-4">
           <h2 id="review-title" className="text-ink-900 text-xl font-extrabold sm:text-2xl">

@@ -7,6 +7,7 @@ import { AgeStep } from '@/components/pet-flow/AgeStep';
 import { BreedStep } from '@/components/pet-flow/BreedStep';
 import { MobileStep } from '@/components/pet-flow/MobileStep';
 import { PetTypeStep } from '@/components/pet-flow/PetTypeStep';
+import { CustomPetTypeStep } from '@/components/pet-flow/CustomPetTypeStep';
 import { ProgressBar } from '@/components/pet-flow/ProgressBar';
 import { TextQuestionStep } from '@/components/pet-flow/TextQuestionStep';
 import { LocationStep } from '@/components/location/LocationStep';
@@ -84,6 +85,15 @@ export function DoctorFlow() {
           />
         );
 
+      case 'customPetType':
+        return (
+          <CustomPetTypeStep
+            initialValue={state.customPetType || ''}
+            onSubmit={(value) => dispatch({ type: 'SET_CUSTOM_PET_TYPE', value })}
+            onBack={() => dispatch({ type: 'BACK' })}
+          />
+        );
+
       case 'age':
         if (!state.petType) return null;
         return (
@@ -133,6 +143,12 @@ export function DoctorFlow() {
               router.push('/doctors');
             }}
             onBack={() => dispatch({ type: 'BACK' })}
+            onStartOver={() => {
+              import('@/components/pet-flow/FlowProvider').then(({ clearStoredFlow }) => {
+                clearStoredFlow();
+                dispatch({ type: 'RESET' });
+              });
+            }}
           />
         );
 

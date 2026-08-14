@@ -9,6 +9,8 @@ import { buildWhatsAppUrl } from '@/lib/utils/whatsapp';
 import { siteConfig } from '@/config/site';
 import type { Doctor } from '@/types';
 
+import { createAppointmentRequest, markWhatsAppOpened } from '@/services/appointmentRequests';
+
 /**
  * Profile-page booking CTA.
  *
@@ -19,6 +21,7 @@ import type { Doctor } from '@/types';
 export function DoctorWhatsAppButton({ doctor }: { doctor: Doctor }) {
   const { state } = useFlow();
   const [reviewOpen, setReviewOpen] = useState(false);
+  const [submittingAnonymous, setSubmittingAnonymous] = useState(false);
 
   const hasFlowDetails = Boolean(
     state.customerName && state.mobile && state.petType && state.petName,
@@ -27,18 +30,60 @@ export function DoctorWhatsAppButton({ doctor }: { doctor: Doctor }) {
   if (!hasFlowDetails) {
     const fallbackMessage = `Hi ${doctor.name.replace(/^Dr\.?\s*/i, 'Dr. ')},\n\nI found your veterinary service through ${siteConfig.name} and would like to request an appointment for my pet.\n\nPlease let me know your availability.`;
 
+    const handleAnonymousBooking = async () => {
+      setSubmittingAnonymous(true);
+      const url = buildWhatsAppUrl(doctor.whatsappNumber, fallbackMessage);
+      const popup = window.open('about:blank', '_blank');
+
+      try {
+        const record = await createAppointmentRequest({
+          customerName: 'Anonymous',
+          customerMobile: '+910000000000',
+          petName: 'Unknown',
+          petType: 'OTHER',
+          doctorId: doctor.id,
+          clinicId: doctor.clinic.id,
+        });
+
+        if (popup) {
+          popup.location.href = url;
+        } else {
+          const link = document.createElement('a');
+          link.href = url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+        }
+
+        await markWhatsAppOpened(record.id);
+      } catch (error) {
+        // Fallback to just opening the URL if DB insert fails
+        console.error('Failed to record anonymous appointment request:', error);
+        if (popup) {
+          popup.location.href = url;
+        } else {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      } finally {
+        setSubmittingAnonymous(false);
+      }
+    };
+
     return (
       <div className="flex flex-col gap-2.5 sm:flex-row">
-        <ButtonLink
-          href={buildWhatsAppUrl(doctor.whatsappNumber, fallbackMessage)}
-          external
+        <Button
+          type="button"
+          onClick={handleAnonymousBooking}
+          disabled={submittingAnonymous}
           variant="whatsapp"
           size="lg"
           fullWidth
         >
           <WhatsAppIcon className="h-5 w-5" />
-          Book Appointment via WhatsApp
-        </ButtonLink>
+          {submittingAnonymous ? 'Preparing...' : 'Book Appointment via WhatsApp'}
+        </Button>
         <ButtonLink href="/find-a-doctor" variant="secondary" size="lg" fullWidth>
           Add my pet&apos;s details first
         </ButtonLink>

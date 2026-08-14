@@ -27,10 +27,12 @@ export function LocationStep({
   petName,
   onResolved,
   onBack,
+  onStartOver,
 }: {
   petName: string;
   onResolved: (location: ResolvedLocation) => void;
   onBack: () => void;
+  onStartOver: () => void;
 }) {
   const inputId = useId();
   const errorId = `${inputId}-error`;
@@ -214,6 +216,17 @@ export function LocationStep({
           </Button>
         </div>
       )}
+
+      {/* Start Over Button */}
+      <div className="mt-8 text-center">
+        <button
+          type="button"
+          onClick={onStartOver}
+          className="text-ink-500 hover:text-ink-800 text-sm font-semibold underline underline-offset-4 transition-colors"
+        >
+          Start Over
+        </button>
+      </div>
     </StepContainer>
   );
 }

@@ -22,7 +22,7 @@ export function FinalCta() {
               Connect with verified professionals and supply stores across {defaultServiceArea.city}{' '}
               in about two minutes.
             </p>
-            <ButtonLink href="/#services" size="lg" variant="inverse" className="group mt-8">
+            <ButtonLink href="#services" size="lg" variant="inverse" className="group mt-8">
               Explore Services
               <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
             </ButtonLink>

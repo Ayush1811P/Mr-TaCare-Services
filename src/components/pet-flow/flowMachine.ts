@@ -9,13 +9,14 @@ import type { Breed, PetType, ResolvedLocation } from '@/types';
  * a dependency.
  */
 
-export type StepId = 'name' | 'mobile' | 'petType' | 'age' | 'breed' | 'petName' | 'location';
+export type StepId = 'name' | 'mobile' | 'petType' | 'customPetType' | 'age' | 'breed' | 'petName' | 'location';
 
 export type FlowState = {
   step: StepId;
   customerName: string;
   mobile: string;
   petType: PetType | null;
+  customPetType?: string;
   ageYears: number;
   ageMonths: number;
   breed: Breed | null;
@@ -32,6 +33,7 @@ export const initialFlowState: FlowState = {
   customerName: '',
   mobile: '',
   petType: null,
+  customPetType: '',
   ageYears: 0,
   ageMonths: 0,
   breed: null,
@@ -47,6 +49,7 @@ export type FlowAction =
   | { type: 'SET_NAME'; value: string }
   | { type: 'SET_MOBILE'; value: string }
   | { type: 'SET_PET_TYPE'; value: PetType }
+  | { type: 'SET_CUSTOM_PET_TYPE'; value: string }
   | { type: 'SET_AGE'; years: number; months: number }
   | { type: 'SET_BREED'; value: Breed | null; skipped?: boolean }
   | { type: 'SET_PET_NAME'; value: string }
@@ -56,7 +59,9 @@ export type FlowAction =
 
 /** Steps actually shown, given the selected animal. */
 export function stepsFor(petType: PetType | null): StepId[] {
-  const steps: StepId[] = ['name', 'mobile', 'petType', 'age'];
+  const steps: StepId[] = ['name', 'mobile', 'petType'];
+  if (petType?.slug === 'other') steps.push('customPetType');
+  steps.push('age');
   if (!petType || petType.hasBreeds) steps.push('breed');
   steps.push('petName', 'location');
   return steps;
@@ -94,13 +99,22 @@ export function flowReducer(state: FlowState, action: FlowAction): FlowState {
 
     case 'SET_PET_TYPE': {
       const next = { ...state, petType: action.value };
-      // Changing animal invalidates a previously chosen breed.
+      // Changing animal invalidates a previously chosen breed and custom type.
       if (state.petType?.slug !== action.value.slug) {
         next.breed = null;
         next.breedSkipped = false;
+        next.customPetType = '';
       }
       return { ...next, step: advance(next, 'petType'), direction: 'forward' };
     }
+
+    case 'SET_CUSTOM_PET_TYPE':
+      return {
+        ...state,
+        customPetType: action.value,
+        step: advance(state, 'customPetType'),
+        direction: 'forward',
+      };
 
     case 'SET_AGE':
       return {
