@@ -85,9 +85,9 @@ export function AppointmentSummary({
     setSubmitting(true);
     setError(false);
 
-    // Open the window synchronously to bypass async popup blockers
     const popup = window.open('about:blank', '_blank');
 
+    let recordId: string | null = null;
     try {
       // Referral record created before handoff, via the service layer.
       const record = await createAppointmentRequest({
@@ -105,41 +105,47 @@ export function AppointmentSummary({
         preferredDate: preferredDate || undefined,
         preferredTime: preferredTime || undefined,
       });
-
-      const url = buildAppointmentWhatsAppUrl({
-        doctor,
-        customerName,
-        customerMobileE164: mobileE164,
-        petName,
-        petTypeLabel: petType.label,
-        breedName: breedSkipped ? undefined : breed?.name,
-        ageYears,
-        ageMonths,
-        preferredDate: preferredDate || undefined,
-        preferredTime: preferredTime || undefined,
-      });
-
-      if (popup) {
-        popup.location.href = url;
-      } else {
-        // Fallback if synchronous popup was still blocked
-        const link = document.createElement('a');
-        link.href = url;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-      }
-
-      await markWhatsAppOpened(record.id);
-      setOpened(true);
-      setSubmitting(false);
-    } catch {
-      if (popup) popup.close();
-      setError(true);
-      setSubmitting(false);
+      recordId = record.id;
+    } catch (err) {
+      console.error('Failed to save appointment request to DB:', err);
     }
+
+    const url = buildAppointmentWhatsAppUrl({
+      doctor,
+      customerName,
+      customerMobileE164: mobileE164,
+      petName,
+      petTypeLabel: petType.label,
+      breedName: breedSkipped ? undefined : breed?.name,
+      ageYears,
+      ageMonths,
+      preferredDate: preferredDate || undefined,
+      preferredTime: preferredTime || undefined,
+    });
+
+    if (popup) {
+      popup.location.href = url;
+    } else {
+      // Fallback if synchronous popup was still blocked
+      const link = document.createElement('a');
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    if (recordId) {
+      try {
+        await markWhatsAppOpened(recordId);
+      } catch (err) {
+        console.error('Failed to mark WhatsApp opened in DB:', err);
+      }
+    }
+
+    setOpened(true);
+    setSubmitting(false);
   };
 
   const whatsappUrl = buildAppointmentWhatsAppUrl({
