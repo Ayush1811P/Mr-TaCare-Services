@@ -67,7 +67,8 @@ export function buildAppointmentMessage(input: AppointmentMessageInput): string 
  */
 export function buildWhatsAppUrl(phone: string, message: string): string {
   const number = toWaNumber(phone);
-  const url = new URL(`https://wa.me/${number}`);
+  const url = new URL(`https://api.whatsapp.com/send`);
+  url.searchParams.set('phone', number);
   url.searchParams.set('text', message);
   return url.toString();
 }

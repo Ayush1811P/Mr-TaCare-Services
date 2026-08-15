@@ -170,6 +170,7 @@ export function AppointmentSummary({
         role="dialog"
         aria-modal="true"
         aria-labelledby="review-title"
+        data-lenis-prevent="true"
         className="bg-cream-50 shadow-lift animate-fade-up overscroll-contain relative max-h-[92dvh] w-full overflow-y-auto rounded-t-3xl p-6 sm:max-w-lg sm:rounded-3xl sm:p-7"
       >
         <div className="flex items-start justify-between gap-4">

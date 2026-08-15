@@ -82,6 +82,14 @@ export function ButtonLink({
     );
   }
 
+  if (href.startsWith('#')) {
+    return (
+      <a href={href} className={classes} {...props}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} className={classes} {...props}>
       {children}
