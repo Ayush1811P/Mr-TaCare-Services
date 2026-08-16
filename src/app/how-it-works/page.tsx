@@ -10,7 +10,7 @@ import { breadcrumbSchema } from '@/lib/seo/structuredData';
 export const metadata = buildPageMetadata({
   title: 'How It Works',
   description:
-    'See how Jivaayu Pet Care works: answer a few questions, find the best vets, groomers, and supply stores near you, and connect directly on WhatsApp.',
+    'See how Jivaayu Pet Care works: answer a few questions, find the closest verified vets, groomers, and supply stores to you, and connect directly on WhatsApp.',
   path: '/how-it-works',
 });
 
@@ -33,7 +33,11 @@ const faqs = [
   {
     question: 'What happens to my phone number?',
     answer:
-      'It goes into the WhatsApp message you send, so the doctor can call you back. Your answers stay in your browser for the session and are not shared with other users.',
+      'It goes into the WhatsApp message you send, so the doctor can call you back. We do not require an account, password, OTP, or use cross-site tracking. Once you open WhatsApp, that conversation is subject to WhatsApp\'s own privacy terms.',
+  },
+  {
+    question: 'Who can use this service?',
+    answer: 'You must be 18 years of age or older to use this service to connect with providers or request supplies.',
   },
 ];
 
@@ -71,17 +75,17 @@ export default function HowItWorksPage() {
               <p className="text-ink-600 mt-2.5 leading-relaxed">
                 We ask your name and mobile number, then what your pet needs—whether it&apos;s a
                 doctor, grooming, or fresh supplies. From there the questions adapt to find you the
-                best match.
+                closest verified match.
               </p>
             </div>
 
             <div>
-              <h3 className="text-ink-900 text-xl font-bold">2. The best options near you</h3>
+              <h3 className="text-ink-900 text-xl font-bold">2. The closest options to you</h3>
               <p className="text-ink-600 mt-2.5 leading-relaxed">
                 Only once your pet&apos;s details are in do we ask for location — and only then does
                 your browser show a permission prompt. Prefer not to share it? Type your sector
-                instead. We list the best verified professionals and stores across{' '}
-                {defaultServiceArea.city} with their services and distance from you, closest first.
+                instead. We list the closest verified professionals and stores across{' '}
+                {defaultServiceArea.city} with their services and distance from you.
               </p>
             </div>
 

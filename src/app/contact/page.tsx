@@ -101,6 +101,20 @@ export default function ContactPage() {
               urgent attention, please contact a veterinary hospital directly.
             </p>
           </div>
+
+          <div className="border-cream-200 mt-6 border-t pt-5">
+            <h3 className="text-ink-900 text-lg font-bold">Grievance & Data Protection</h3>
+            <p className="text-ink-500 mt-2 leading-relaxed">
+              For any grievances regarding our services, or to exercise your rights regarding your personal data (such as data deletion requests under applicable data protection laws), please email our Grievance Officer at{' '}
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="font-semibold text-teal-700 underline underline-offset-4 hover:text-teal-800"
+              >
+                {siteConfig.email}
+              </a>
+              . We will process your request promptly in accordance with the law.
+            </p>
+          </div>
         </div>
       </Section>
 

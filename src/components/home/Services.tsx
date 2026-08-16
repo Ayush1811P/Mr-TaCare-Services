@@ -34,21 +34,25 @@ export function Services() {
         />
 
         <ServiceCard
-          status="coming-soon"
+          status="active"
           title="Pet Foods"
           description="Premium nutrition for your companions — from daily kibble to specialized diets."
-          imageSrc="/images/pet-food.jpg"
+          imageSrc="/images/pet-toys.jpg"
           imageAlt="A bowl of pet food"
           icon={<BowlIcon className="h-6 w-6" />}
+          ctaLabel="Shop Food"
+          ctaHref="/pet-food"
         />
 
         <ServiceCard
-          status="coming-soon"
+          status="active"
           title="Pet Toys"
           description="Engaging and durable toys to keep your pet active and happy."
-          imageSrc="/images/pet-toys.jpg"
+          imageSrc="/images/pet-food.jpg"
           imageAlt="A dog playing with a toy"
           icon={<BoneIcon className="h-6 w-6" />}
+          ctaLabel="Shop Toys"
+          ctaHref="/pet-toys"
         />
 
         <ServiceCard

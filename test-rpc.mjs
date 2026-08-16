@@ -1,7 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = 'https://tmhzokqwbqzhfbyhbakm.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtaHpva3F3YnF6aGZieWhiYWttIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY2NDY3NTcsImV4cCI6MjEwMjIyMjc1N30.28U9UV_5lls2TOEvaDVqEWvQdqMpmK1OMie7KFQMVms';
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
+  console.error("Missing Supabase environment variables. Run with: node --env-file=.env.local test-rpc.mjs");
+  process.exit(1);
+}
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 

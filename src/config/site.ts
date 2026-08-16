@@ -76,6 +76,8 @@ export function findServiceArea(slug: string): ServiceArea | undefined {
 
 export const mainNav = [
   { href: '/', label: 'Home' },
+  { href: '/pet-food', label: 'Pet Food' },
+  { href: '/pet-toys', label: 'Pet Toys' },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -83,6 +85,8 @@ export const mainNav = [
 
 export const footerNav = [
   { href: '/doctors', label: 'Find a Doctor' },
+  { href: '/pet-food', label: 'Pet Food' },
+  { href: '/pet-toys', label: 'Pet Toys' },
   { href: '/how-it-works', label: 'How It Works' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },

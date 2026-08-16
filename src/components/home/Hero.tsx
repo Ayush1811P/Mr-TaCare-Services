@@ -63,23 +63,14 @@ export function Hero() {
                 priority
                 fetchPriority="high"
                 quality={90}
-                className="animate-float-subtle block h-auto w-full object-cover sm:hidden"
+                className="animate-pulse block h-auto w-full object-cover sm:hidden"
               />
 
-              <div className="absolute right-6 bottom-6 left-6 z-10 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <ButtonLink href="#services" size="lg" className="group w-full shadow-lg sm:w-auto">
-                  Explore Services
-                  <ArrowRightIcon className="h-5 w-5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
-                </ButtonLink>
-                <ButtonLink
-                  href="/how-it-works"
-                  size="lg"
-                  variant="secondary"
-                  className="w-full shadow-lg sm:w-auto"
-                >
-                  How it works
-                </ButtonLink>
-              </div>
+            </div>
+            
+            <div className="mt-8 flex flex-col items-center justify-center text-center">
+              <span className="text-3xl font-extrabold text-ink-900 sm:text-4xl">OUR</span>
+              <span className="text-3xl font-extrabold text-teal-700 sm:text-4xl">Family Member</span>
             </div>
           </div>
         </div>

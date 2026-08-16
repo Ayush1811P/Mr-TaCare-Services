@@ -76,21 +76,22 @@ export default function AboutPage() {
             <h3 className="text-ink-900 pt-3 text-xl font-bold sm:text-2xl">What we care about</h3>
             <p>
               <strong className="text-ink-900 font-semibold">Honesty about what we know.</strong> We
-              do not publish invented ratings, fake reviews or made-up availability. If a listing is
-              not verified, we do not show a consultation fee or opening hours for it. If we cannot
-              tell you whether a doctor is free at 6:30 PM, we say &ldquo;contact the doctor for
-              availability&rdquo; — because that is the truth.
+              do not publish invented ratings, fake reviews or made-up availability. When we say a provider is 
+              &ldquo;verified&rdquo;, we mean we confirm their business registration and a working contact number; we do not audit 
+              medical qualifications or inspect premises. If we cannot tell you whether a doctor is free at 6:30 PM, we say 
+              &ldquo;contact the doctor for availability&rdquo; — because that is the truth.
             </p>
             <p>
-              <strong className="text-ink-900 font-semibold">Respect for your data.</strong> No
-              account, no password, no tracking you across the internet. Your location is used to
-              sort doctors by distance and nothing else. Your phone number goes into the message you
-              send, and that is it.
+              <strong className="text-ink-900 font-semibold">Respect for your data.</strong> We
+              do not require an account, password, OTP, or use cross-site tracking. Your location is used to
+              sort providers by distance. Once you open WhatsApp, that conversation is subject to
+              WhatsApp's own privacy terms.
             </p>
             <p>
               <strong className="text-ink-900 font-semibold">Staying in our lane.</strong> We are
-              not veterinarians. We do not diagnose, prescribe or advise on treatment. We connect
-              you to qualified professionals and let them do their job.
+              not veterinarians, groomers, or retailers. We do not diagnose, prescribe or advise on treatment,
+              and we do not vet the medical judgment, treatment quality, product safety, or service quality of any listed provider. 
+              Any dispute regarding a consultation, treatment, grooming service, or product is strictly between you and the provider.
             </p>
 
             <h3 className="text-ink-900 pt-3 text-xl font-bold sm:text-2xl">
@@ -117,7 +118,7 @@ export default function AboutPage() {
               Whether your pet needs an urgent check-up, a fresh haircut, or a new bag of food, the
               last thing you want is to scroll through a dozen tabs trying to find the best option.
               Jivaayu Pet Care exists to shorten that gap. Tell us what you need, share your
-              location, and we show you the best verified professionals and stores near you across{' '}
+              location, and we show you the closest verified providers to you across{' '}
               {city}.
             </p>
 

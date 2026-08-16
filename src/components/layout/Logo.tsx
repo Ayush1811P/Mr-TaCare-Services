@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import { PawIcon } from '@/components/ui/Icons';
 import { siteConfig } from '@/config/site';
 
 export function Logo({ href = '/' }: { href?: string }) {
   return (
-    <Link
+    <a
       href={href}
       className="group inline-flex shrink-0 items-center gap-2.5 rounded-lg"
       aria-label={`${siteConfig.name} — home`}
@@ -16,6 +15,6 @@ export function Logo({ href = '/' }: { href?: string }) {
       <span className="text-ink-900 text-base leading-none font-bold tracking-tight whitespace-nowrap sm:text-[1.0625rem]">
         Jivaayu<span className="text-teal-700"> Pet Care</span>
       </span>
-    </Link>
+    </a>
   );
 }

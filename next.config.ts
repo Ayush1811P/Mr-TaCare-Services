@@ -17,7 +17,7 @@ const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   // wa.me handoff is a top-level navigation, so it needs form-action/navigate.
   "connect-src 'self'",
@@ -50,6 +50,20 @@ const nextConfig: NextConfig = {
     qualities: [70, 75],
     deviceSizes: [360, 420, 640, 768, 1024, 1280, 1536],
     imageSizes: [80, 96, 128, 170, 220, 256, 384],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.gstatic.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.serpapi.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.googleusercontent.com',
+      }
+    ],
   },
 
   async headers() {
